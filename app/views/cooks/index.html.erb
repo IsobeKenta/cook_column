@@ -1,8 +1,17 @@
 <aside>
   <div class="column-categori">カテゴリー</div>
-  <div>ここからカテゴリ表示</div>
+  <div class="categori-list">
+    <p><%= "カテゴリー" %></p>
+  </div>
 </aside>
 <main>
-  <div class="column-list">コラム一覧</div>
-  <div>ここにコラム一覧を表示する</div>
+  <div class="column-list">
+    <div class="list">コラム一覧</div>
+    <% @cooks.each do |cook| %>
+      <div class="column_post">
+        <p><%= cook.title %></p>
+        <p><%= cook.text %></p>
+      <% end %>
+    </div>
+  </div>
 </main>
