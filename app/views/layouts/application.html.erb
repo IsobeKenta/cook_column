@@ -15,11 +15,14 @@
       <%= link_to 'cook_column', root_path %>
     </div>
     <div class="log-new">
-      <%= link_to 'ログイン' %>
-      <%= link_to '新規登録' %>
-      <%= link_to 'マイページ' %>
-      <%= link_to 'ログアウト' %>
-      <%= link_to '新規投稿' %>
+      <% if user_signed_in?%>
+        <%= link_to 'マイページ' %>
+        <%= link_to 'ログアウト', destroy_user_session_path %>
+        <%= link_to '新規投稿' %>
+      <% else %>
+        <%= link_to 'ログイン', new_user_session_path %>
+        <%= link_to '新規登録', new_user_registration_path %>
+      <% end %>
     </div>
   </header>
     <%= yield %>
