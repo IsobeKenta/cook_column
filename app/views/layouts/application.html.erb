@@ -9,7 +9,20 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class ="cook-content">
+  <header>
+    <div class="app-title">
+      <%= link_to 'cook_column', root_path %>
+    </div>
+    <div class="log-new">
+      <%= link_to 'ログイン' %>
+      <%= link_to '新規登録' %>
+      <%= link_to 'マイページ' %>
+      <%= link_to 'ログアウト' %>
+      <%= link_to '新規投稿' %>
+    </div>
+  </header>
     <%= yield %>
+  <footer>footer</footer>
   </body>
 </html>
