@@ -1,0 +1,48 @@
+.cook-content{
+  background-color: bisque;
+}
+body {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template: 
+      "header header header" 130px
+      "...... ...... ......"
+      "left   center ......" 1000px
+      "...... ...... ......"
+      "footer footer footer" 100px
+      / 200px 1fr ;
+}
+
+header {
+  grid-area: header;
+  border: 1px solid;
+}
+
+
+header a {
+  text-decoration: none;
+}
+
+.app-title {
+  font-size: 50px;
+}
+
+.log-new {
+  float: right;
+}
+
+
+aside {
+  grid-area: left;
+  border: 1px solid;
+}
+
+main {
+  grid-area: center;
+  border: 1px solid;
+}
+
+footer {
+  grid-area: footer;
+}

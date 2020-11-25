@@ -4,12 +4,28 @@
     <title>CookColumn</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class ="cook-content">
+  <header>
+    <div class="app-title">
+      <%= link_to 'cook_column', root_path %>
+    </div>
+    <div class="log-new">
+      <% if user_signed_in?%>
+        <%= link_to 'マイページ' %>
+        <%= link_to 'ログアウト', destroy_user_session_path %>
+        <%= link_to '新規投稿' %>
+      <% else %>
+        <%= link_to 'ログイン', new_user_session_path %>
+        <%= link_to '新規登録', new_user_registration_path %>
+      <% end %>
+    </div>
+  </header>
     <%= yield %>
+  <footer>footer</footer>
   </body>
 </html>
