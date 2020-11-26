@@ -2,7 +2,7 @@ class CooksController < ApplicationController
   before_action :move_to_index, only: [:new, :edit]
 
   def index
-    @cooks = Cook.all
+    @cooks = Cook.includes(:user).order("created_at DESC")
   end
 
   def new
