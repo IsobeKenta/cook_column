@@ -1,0 +1,10 @@
+<div class="contents row">
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @cooks.each do |cook| %>
+    <div class="content_post">
+      <span class="name"><%= cook.user.nickname %></span>
+      <p><%= cook.title %></p>
+      <p><%= cook.text %></p>
+    </div>
+  <% end %>
+</div>

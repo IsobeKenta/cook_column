@@ -16,7 +16,7 @@
     </div>
     <div class="log-new">
       <% if user_signed_in?%>
-        <%= link_to 'マイページ' %>
+        <%= link_to 'マイページ', "/users/#{current_user.id}" %>
         <%= link_to 'ログアウト', destroy_user_session_path %>
         <%= link_to '新規投稿', new_cook_path %>
       <% else %>
