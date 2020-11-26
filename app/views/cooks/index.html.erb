@@ -12,12 +12,14 @@
           <div class="more">
             <span><%= image_tag 'arrow_top.png' %></span>
             <ul class="more_list">
-              <li>
-                <%= link_to '編集' %>
-              </li>
-              <li>
-                <%= link_to '削除'%>
-              </li>
+              <% if user_signed_in? && cook.user_id == current_user.id %>
+                <li>
+                  <%= link_to '編集', edit_cook_path(cook.id) %>
+                </li>
+                <li>
+                  <%= link_to '削除'%>
+                </li>
+              <% end%>
             </ul>
           </div>
           <div class="write-user">
@@ -26,7 +28,7 @@
             </a>
           </div>
           <div class="column-title">
-            <p><%= cook.title %></p>
+            <p><%= link_to cook.title %></p>
           </div>
           <div class="column-text">
             <p><%= cook.text %></p>
