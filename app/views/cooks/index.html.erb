@@ -28,7 +28,7 @@
             </a>
           </div>
           <div class="column-title">
-            <p><%= link_to cook.title %></p>
+            <p><%= link_to cook.title, cook_path(cook.id), method: :get %></p>
           </div>
           <div class="column-text">
             <p><%= cook.text %></p>
