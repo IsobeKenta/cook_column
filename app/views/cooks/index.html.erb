@@ -17,7 +17,7 @@
                   <%= link_to '編集', edit_cook_path(cook.id) %>
                 </li>
                 <li>
-                  <%= link_to '削除'%>
+                  <%= link_to '削除', cook_path(cook.id), method: :delete%>
                 </li>
               <% end%>
             </ul>

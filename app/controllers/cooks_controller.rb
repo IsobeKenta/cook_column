@@ -37,6 +37,13 @@ class CooksController < ApplicationController
     end
   end
 
+  def destroy
+    @cook = Cook.find(params[:id])
+    if @cook.destroy
+      redirect_to root_path
+    end
+  end
+
   private
   def cook_params
     params.require(:cook).permit(:title, :text, :genre_id).merge(user_id: current_user.id)
