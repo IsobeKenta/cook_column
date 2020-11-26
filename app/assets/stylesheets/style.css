@@ -6,7 +6,7 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template: 
-      "header header header" 130px
+      "header header header" 100px
       "...... ...... ......"
       "left   center ......" 1000px
       "...... ...... ......"
