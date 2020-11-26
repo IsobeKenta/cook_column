@@ -46,6 +46,8 @@ class CooksController < ApplicationController
 
   def show
     @cook = Cook.find(params[:id])
+    @comment = Comment.new
+    @comments = @cook.comments.includes(:user)
   end
 
   private

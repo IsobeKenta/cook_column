@@ -32,7 +32,8 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
+| cook   | references | null: false, foreign_key: true |
+| text   | text       | null: false                    |
 
 ### Association
 

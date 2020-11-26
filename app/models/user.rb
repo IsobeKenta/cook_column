@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, length: { maximum: 6 }
   has_many :cooks
+  has_many :comments
 end
