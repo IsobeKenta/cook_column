@@ -44,6 +44,10 @@ class CooksController < ApplicationController
     end
   end
 
+  def show
+    @cook = Cook.find(params[:id])
+  end
+
   private
   def cook_params
     params.require(:cook).permit(:title, :text, :genre_id).merge(user_id: current_user.id)
