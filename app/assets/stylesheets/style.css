@@ -46,3 +46,8 @@ main {
 footer {
   grid-area: footer;
 }
+
+.column-video {
+  height: 150px;
+  width: 250px;
+}
