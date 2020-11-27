@@ -5,6 +5,15 @@
       <span class="name"><%= cook.user.nickname %></span>
       <p><%= cook.title %></p>
       <p><%= cook.text %></p>
+      <div class="column-genre">
+    <p><%= cook.genre.name %></p>
+  </div>
+  <div>
+    <%= image_tag cook.image.variant(resize: '250x250'), class:"column-image" if cook.image.attached? %>
+    <% if cook.video.attached? %>
+    <video src="<%= rails_blob_path(cook.video) %>"  type="video/mp4", class="column-video" controls></video>
+    <% end %>
+  </div>
     </div>
   <% end %>
 </div>

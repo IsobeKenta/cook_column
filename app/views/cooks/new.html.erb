@@ -4,6 +4,8 @@
     <%= f.text_field :title, class:"title", placeholder:"タイトル" %>
     <%= f.text_area :text, class:"text", placeholder:"テキスト" %>
     <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
+    <%= f.file_field :image %>
+    <%= f.file_field :video %>
     <%= f.submit "投稿する" ,class:"btn" %>
   </div>
 <% end %>

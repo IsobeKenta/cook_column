@@ -3,6 +3,7 @@ class CooksController < ApplicationController
 
   def index
     @cooks = Cook.includes(:user).order("created_at DESC")
+  
   end
 
   def new
@@ -52,7 +53,7 @@ class CooksController < ApplicationController
 
   private
   def cook_params
-    params.require(:cook).permit(:title, :text, :genre_id).merge(user_id: current_user.id)
+    params.require(:cook).permit(:title, :text, :genre_id, :image, :video).merge(user_id: current_user.id)
   end
 
   def move_to_index
