@@ -1,19 +1,18 @@
 class Cook < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :cook_tag_relations
+  has_many :tags, through: :cook_tag_relations
   has_one_attached :image
   has_one_attached :video
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
-
-  validates :title, presence: true
-  validates :text ,presence: true, unless: :was_attached?
-  validates :genre_id, numericality: { other_than: 1 }
-
+  validates :text , presence: true, unless: :was_attached?
   def was_attached?
     self.image.attached?
     self.video.attached?
   end
+ 
   validate :image_presence
   def image_presence
     if image.attached?
@@ -30,4 +29,5 @@ class Cook < ApplicationRecord
       end
     end
   end
+
 end

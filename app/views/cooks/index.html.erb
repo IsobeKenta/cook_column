@@ -1,12 +1,15 @@
 <aside>
   <div class="column-categori">カテゴリー</div>
   <div class="categori-list">
-    <p><%= "カテゴリー" %></p>
+    <p><%= link_to 'レシピ' %></p>
+    <p><%= link_to 'テクニック' %></p>
+    <p><%= link_to '調理器具' %></p>
+    <p><%= link_to 'その他' %></p>
   </div>
 </aside>
 <main>
   <div class="column-list">
-    <div class="list">コラム一覧</div>
+    <div class="list">コラム一覧(新着順)</div>
       <% @cooks.each do |cook| %>
         <div class="column-post">
           <div class="more">
@@ -36,6 +39,13 @@
           <div class="column-genre">
             <p><%= cook.genre.name %></p>
           </div>
+          <ul class="column-tag">
+            <li class="tag-list">
+              <% cook.tags.each do |tag| %>
+                #<%=tag.name%>
+              <% end %>
+            </li>
+          </ul>
           <div>
             <%= image_tag cook.image.variant(resize: '250x250'), class:"column-image" if cook.image.attached? %>
             <% if cook.video.attached? %>
