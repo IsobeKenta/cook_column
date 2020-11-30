@@ -1,7 +1,7 @@
 class Cook < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
-  has_many :cook_tag_relations
+  has_many :cook_tag_relations, dependent: :destroy
   has_many :tags, through: :cook_tag_relations
   has_one_attached :image
   has_one_attached :video
