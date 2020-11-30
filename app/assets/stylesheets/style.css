@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 .cook-content{
   background-color: bisque;
 }
@@ -41,7 +44,10 @@ aside {
 main {
   grid-area: center;
   border: 1px solid;
+  overflow: scroll;
 }
+
+
 
 footer {
   grid-area: footer;

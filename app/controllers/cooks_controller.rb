@@ -7,12 +7,13 @@ class CooksController < ApplicationController
   end
 
   def new
-    @cook = Cook.new
+    @cook = CooksTag.new
   end
 
   def create
-    @cook = Cook.new(cook_params)
-    if @cook.save
+    @cook = CooksTag.new(cook_params)
+    if @cook.valid?
+      @cook.save
       redirect_to root_path
     else
       render :new
@@ -51,9 +52,15 @@ class CooksController < ApplicationController
     @comments = @cook.comments.includes(:user)
   end
 
+  def search
+    return nil if params[:keyword] == ""
+    tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"])
+    render json:{ keyword: tag }
+  end
+
   private
   def cook_params
-    params.require(:cook).permit(:title, :text, :genre_id, :image, :video).merge(user_id: current_user.id)
+    params.require(:cooks_tag).permit(:title, :text, :genre_id, :image, :video, :name).merge(user_id: current_user.id)
   end
 
   def move_to_index

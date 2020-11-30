@@ -1,9 +1,28 @@
-<%= form_with model: @cook, url:cook_path, local: true do |f| %>
-  <div class="article-box">
-    コラムを投稿する
-    <%= f.text_field :title, class:"title", placeholder:"タイトル" %>
-    <%= f.text_area :text, class:"text", placeholder:"テキスト" %>
-    <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
-    <%= f.submit "投稿する" ,class:"btn" %>
-  </div>
-<% end %>
+<main>
+  <%= form_with model: @cook, url:cook_path, local: true do |f| %>
+    <div class="column-form">
+      コラムを投稿する
+      <div class="title-field">
+        <%= f.text_field :title, class:"title", placeholder:"タイトル" %>
+      </div>
+      <div class="text-field">
+        <%= f.text_area :text, class:"text", placeholder:"テキスト" %>
+      </div>
+      <div class="categori-field">
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
+      </div>
+      <div class="file-field">
+        <%= f.file_field :image %>
+        <%= f.file_field :video %>
+      </div>
+      <div class="tag-field", id='tag-field'>
+        <%= f.text_field :name, class:"input-tag" %>
+      </div>
+      <div id="search-result">
+      </div>
+      <div class="submit-post">
+        <%= f.submit "投稿する" ,class:"btn" %>
+      </div>
+    </div>
+  <% end %>
+</main>

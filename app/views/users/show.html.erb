@@ -1,19 +1,28 @@
-<div class="contents row">
-  <p><%= @nickname %>さんの投稿一覧</p>
-  <% @cooks.each do |cook| %>
-    <div class="content_post">
-      <span class="name"><%= cook.user.nickname %></span>
-      <p><%= cook.title %></p>
-      <p><%= cook.text %></p>
-      <div class="column-genre">
-    <p><%= cook.genre.name %></p>
-  </div>
-  <div>
-    <%= image_tag cook.image.variant(resize: '250x250'), class:"column-image" if cook.image.attached? %>
-    <% if cook.video.attached? %>
-    <video src="<%= rails_blob_path(cook.video) %>"  type="video/mp4", class="column-video" controls></video>
+<main>
+  <div class="contents row">
+    <p><%= @nickname %>さんの投稿一覧</p>
+    <% @cooks.each do |cook| %>
+      <div class="content_post">
+        <span class="name"><%= cook.user.nickname %></span>
+        <p><%= link_to cook.title, cook_path(cook.id), method: :get %></p>
+        <p><%= cook.text %></p>
+        <div class="column-genre">
+      <p><%= cook.genre.name %></p>
+      <ul class="column-tag">
+      <li class="tag-list">
+        <% cook.tags.each do |tag| %>
+          #<%=tag.name%>
+        <% end %>
+      </li>
+    </ul>
+    </div>
+    <div>
+      <%= image_tag cook.image.variant(resize: '250x250'), class:"column-image" if cook.image.attached? %>
+      <% if cook.video.attached? %>
+      <video src="<%= rails_blob_path(cook.video) %>"  type="video/mp4", class="column-video" controls></video>
+      <% end %>
+    </div>
+      </div>
     <% end %>
   </div>
-    </div>
-  <% end %>
-</div>
+</main>
