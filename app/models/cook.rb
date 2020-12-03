@@ -3,21 +3,21 @@ class Cook < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :cook_tag_relations, dependent: :destroy
   has_many :tags, through: :cook_tag_relations
-  has_many_attached :images
+  has_one_attached :image
   has_one_attached :video
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
   validates :text , presence: true, unless: :was_attached?
   def was_attached?
-    self.images.attached?
+    self.image.attached?
     self.video.attached?
   end
  
   validate :image_presence
   def image_presence
-    if images.attached?
-      if !images.content_type.in?(%('image/jpeg image/png'))
-        errors.add(:images, 'にはjpegまたはpngファイルを添付してください')
+    if image.attached?
+      if !image.content_type.in?(%('image/jpeg image/png'))
+        errors.add(:image, 'にはjpegまたはpngファイルを添付してください')
       end
     end
   end
