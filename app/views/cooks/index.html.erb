@@ -5,7 +5,11 @@
       <% @cooks.each do |cook| %>
         <li class="list">
           <div class="column-info">
-            
+            <div class="column-image">
+              <% cook.images.each do |image| %>
+                <%= image_tag image.variant(resize: '250x250'), class:"images" %>
+              <% end %>
+            </div>
             <h3 class="column-title">
               <%= link_to cook.title, cook_path(cook.id), method: :get, class: "title-name" %>
             </h3>
@@ -27,5 +31,6 @@
           </div>
         </li>
       <% end %>
+    </ul>
   </div>
 </main>
