@@ -30,8 +30,10 @@ header a {
 
 .cook-image {
   grid-area: image;
-  background-image: url(cook.jpg);
-  background-size: cover;
+  background-image: url(beef.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
 }
 
 
