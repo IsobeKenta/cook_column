@@ -33,7 +33,7 @@
       <% end %>
     </li>
   </ul>
-  <div>
+  <div class="column-image">
     <%= image_tag @cook.image.variant(resize: '250x250'), class:"column-image" if @cook.image.attached? %>
     <% if @cook.video.attached? %>
     <video src="<%= rails_blob_path(@cook.video) %>"  type="video/mp4", class="column-video" controls></video>
