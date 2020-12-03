@@ -1,28 +1,31 @@
 <main>
-  <div class="contents row">
-    <p><%= @nickname %>さんの投稿一覧</p>
-    <% @cooks.each do |cook| %>
-      <div class="content_post">
-        <span class="name"><%= cook.user.nickname %></span>
-        <p><%= link_to cook.title, cook_path(cook.id), method: :get %></p>
-        <p><%= cook.text %></p>
-        <div class="column-genre">
-      <p><%= cook.genre.name %></p>
-      <ul class="column-tag">
-      <li class="tag-list">
-        <% cook.tags.each do |tag| %>
-          #<%=tag.name%>
-        <% end %>
-      </li>
-    </ul>
-    </div>
-    <div>
-      <%= image_tag cook.image.variant(resize: '250x250'), class:"column-image" if cook.image.attached? %>
-      <% if cook.video.attached? %>
-      <video src="<%= rails_blob_path(cook.video) %>"  type="video/mp4", class="column-video" controls></video>
+  <div class="column-contents">
+    <p class="title"><%= @nickname %>さんの投稿一覧</p>
+    <ul class="column-lists">
+      <% @cooks.each do |cook| %>
+        <li class="list">
+          <div class="column-info">
+            <h3 class="column-title">
+              <%= link_to cook.title, cook_path(cook.id), method: :get, class: "title-name" %>
+            </h3>
+            <div class="write-user">
+              <a href="/users/<%= cook.user.id %>">
+                <%= cook.user.nickname %>
+              </a>
+            </div>
+            <div class="column-genre">
+              <p><%= cook.genre.name %></p>
+            </div>
+            <ul class="column-tag">
+              <li class="tag-list">
+                <% cook.tags.each do |tag| %>
+                  #<%=tag.name%>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </li>
       <% end %>
-    </div>
-      </div>
-    <% end %>
+    </ul>
   </div>
 </main>

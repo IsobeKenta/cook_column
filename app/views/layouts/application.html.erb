@@ -12,29 +12,30 @@
   <body class ="cook-content">
   <header>
     <div class="app-title">
-      <%= link_to 'cook_column', root_path %>
+      <a href= "/"><span>Cook</span>Column</a>
     </div>
     <div class="log-new">
       <% if user_signed_in?%>
-        <%= link_to 'マイページ', "/users/#{current_user.id}" %>
-        <%= link_to 'ログアウト', destroy_user_session_path %>
-        <%= link_to '新規投稿', new_cook_path %>
+        <%= link_to 'マイページ', "/users/#{current_user.id}", class: "right-container" %>
+        <%= link_to 'ログアウト', destroy_user_session_path, class: "right-container" %>
+        <%= link_to '新規投稿', new_cook_path, class: "right-container" %>
       <% else %>
-        <%= link_to 'ログイン', new_user_session_path %>
-        <%= link_to '新規登録', new_user_registration_path %>
+        <%= link_to 'ログイン', new_user_session_path, class: "right-container" %>
+        <%= link_to '新規登録', new_user_registration_path, class: "right-container" %>
       <% end %>
     </div>
+    
   </header>
-  <aside>
-    <div class="column-categori">カテゴリー</div>
+  <div class="cook-image"></div>
+  <aside class="column-categori">
+    <div class="categori-name">カテゴリー</div>
     <div class="categori-list">
-      <p><%= link_to 'レシピ' %></p>
+      <p><%= link_to 'レシピ'  %></p>
       <p><%= link_to 'テクニック' %></p>
       <p><%= link_to '調理器具' %></p>
       <p><%= link_to 'その他' %></p>
     </div>
   </aside>
     <%= yield %>
-  <footer>footer</footer>
   </body>
 </html>

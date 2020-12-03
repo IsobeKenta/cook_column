@@ -3,43 +3,41 @@
     <span><%= image_tag 'arrow_top.png' %></span>
     <ul class="more_list">
       <% if user_signed_in? && @cook.user_id == current_user.id %>
-        <li>
+        <li class="edit-delete">
           <%= link_to '編集', edit_cook_path(@cook.id) %>
         </li>
-        <li>
-          <%= link_to '削除', cook_path(@cook.id), method: :delete%>
+        <li class="edit-delete">
+          <%= link_to '削除', cook_path(@cook.id), method: :delete %>
         </li>
       <% end%>
     </ul>
   </div>
-  <div class="write-user">
-    <a href="/users/<%= @cook.user.id %>">
-      <%= @cook.user.nickname %>
-    </a>
-  </div>
-  <div class="column-title">
-    <p><%= link_to @cook.title, cook_path(@cook.id), method: :get %></p>
-  </div>
-  <div class="column-text">
-    <p><%= @cook.text %></p>
-  </div>
-  <div class="column-genre">
-    <p><%= @cook.genre.name %></p>
-  </div>
-  <ul class="column-tag">
-    <li class="tag-list">
-      <% @cook.tags.each do |tag| %>
-        #<%=tag.name%>
+  <div class="column">
+    <div class="column-title">
+      <%= @cook.title %>
+    </div>
+    <div class="column-text">
+      <%= @cook.text %>
+    </div>
+    <div class="column-genre">
+      <p><%= @cook.genre.name %></p>
+    </div>
+    <ul class="column-tag">
+      <li class="tag-list">
+        <% @cook.tags.each do |tag| %>
+          #<%=tag.name%>
+        <% end %>
+      </li>
+    </ul>
+    
+    <div class="column-image">
+      <% @cook.images.each do |image| %>
+        <%= image_tag image.variant(resize: '250x250'), class:"images" %>
       <% end %>
-    </li>
-  </ul>
-  <div>
-    <%= image_tag @cook.image.variant(resize: '250x250'), class:"column-image" if @cook.image.attached? %>
-    <% if @cook.video.attached? %>
-    <video src="<%= rails_blob_path(@cook.video) %>"  type="video/mp4", class="column-video" controls></video>
-    <% end %>
-  </div>
-  <div>
+      <% if @cook.video.attached? %>
+        <video src="<%= rails_blob_path(@cook.video) %>"  type="video/mp4", class="column-video" controls></video>
+      <% end %>
+    </div>
   </div>
   <div class="container">
     <% if user_signed_in? %>
