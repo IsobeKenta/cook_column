@@ -15,21 +15,27 @@
   
 }
 .column-lists>.list {
-  width: 85vw;
   padding: 1vw;
   background-color: #FFF;
-  
 }
 
 .column-info {
+  margin-left: 30px;
+  width: 60vw;
   color: black;
-  padding: 1vw;
+  padding: 30px 0 10px 10px;
   border: 1px solid;
   background-color: #FFCC00;
 }
 
 .column-image {
   float: left;
+}
+
+.images {
+  height: 100px;
+  width: 150px;
+  padding-right: 8px;
 }
 
 .column-title {

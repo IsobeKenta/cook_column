@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_103643) do
   create_table "cooks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "text", null: false
+    t.text "resipe", null: false
     t.integer "genre_id", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false

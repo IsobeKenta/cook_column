@@ -1,4 +1,4 @@
-<div class="cook-image"></div>
+
 <main>
   <div class="column-contents">
     <h2 class="title">コラム一覧(新着順)</h2>
@@ -7,7 +7,7 @@
         <li class="list">
           <div class="column-info">
             <div class="column-image">
-              <%= image_tag cook.image.variant(resize: '100x100'), class: "images" if cook.image.attached? %>
+              <%= image_tag cook.image, class: "images" if cook.image.attached? %>
             </div>
             <h3 class="column-title">
               <%= link_to cook.title, cook_path(cook.id), method: :get, class: "title-name" %>
