@@ -1,22 +1,50 @@
-<main>
+<main class="form-contents">
   <%= form_with model: @cook, url:cooks_path, local: true do |f| %>
     <div class="column-form">
-      コラムを投稿する
-      <div class="title-field">
-        <%= f.text_field :title, class:"title", placeholder:"タイトル" %>
+      <div class="field">
+        <div class="title-field">
+          <h2 class="field-name">タイトル</h2>
+          <%= f.text_field :title, class:"title", placeholder:"タイトル" %>
+        </div>
       </div>
-      <div class="text-field">
-        <%= f.text_area :text, class:"text", placeholder:"テキスト" %>
+      <div class="field">
+        <div class="text-field">
+          <h2 class="field-name">コラム</h2>
+          <%= f.text_area :text, class:"text", placeholder:"テキスト" %>
+        </div>
       </div>
-      <div class="categori-field">
-        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
+      <div class="field">
+        <div class="resipe-field">
+          <h2 class="field-name">レシピ</h2>
+          <%= f.text_area :resipe, class:"resipe", placeholder:"レシピ" %>
+        </div>
       </div>
-      <div class="file-field">
-        <%= f.file_field :image %>
-        <%= f.file_field :video %>
+      <div class="field">
+        <div class="categori-field">
+          <div class="cook_input__body__category" id="category_box">
+            <div class="pulldown" id="partent_box">
+              <%= f.label 'カテゴリー', class: 'listing-default__label' %>
+              <%= f.select :category_id, options_for_select(@category_parent_array.map{|c| [c[:name], c[:id]]}), {include_blank: "選択してください"}, {class: "parent_category_box", id: "parent_category"}%>
+            </div>
+            <div class="pulldown cook_input__body__category__children" id="children_box">
+            </div>
+            <div class=" pulldown cook_input__body__category__grandchildren" id="grandchildren_box">
+          </div>
+        </div>
       </div>
-      <div class="tag-field", id='tag-field'>
-        <%= f.text_field :name, class:"input-tag" %>
+      <div class="field">
+        <div class="file-field">
+          <h2 class="field-name">画像</h2>
+          <%= f.file_field :image %>
+          <h2 class="field-name">動画</h2>
+          <%= f.file_field :video %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="tag-field", id='tag-field'>
+          <h2 class="field-name">タグ</h2>
+          <%= f.text_field :name, class:"input-tag" %>
+        </div>
       </div>
       <div id="search-result">
       </div>

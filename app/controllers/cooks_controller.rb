@@ -1,5 +1,6 @@
 class CooksController < ApplicationController
   before_action :move_to_index, only: [:new, :edit]
+  before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
 
   def index
     @cooks = Cook.includes(:user).order("created_at DESC")
@@ -35,7 +36,7 @@ class CooksController < ApplicationController
     if @cook.save
       redirect_to root_path
     else
-      render :new
+      render :edit
     end
   end
 
@@ -53,14 +54,20 @@ class CooksController < ApplicationController
   end
 
   def search
-    return nil if params[:keyword] == ""
-    tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"])
-    render json:{ keyword: tag }
+    @cooks = Cook.search(params[:keyword])
+  end
+
+  def get_category_children
+    @category_children = Category.find(params[:parent_name]).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   private
   def cook_params
-    params.require(:cooks_tag).permit(:title, :text, :genre_id, :video, :name, :image).merge(user_id: current_user.id)
+    params.require(:cooks_tag).permit(:title, :text, :resipe,:video, :name, :image, :category_id).merge(user_id: current_user.id)
   end
 
   def move_to_index
@@ -68,4 +75,9 @@ class CooksController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def set_category
+    @category_parent_array = Category.where(ancestry: nil)
+  end
+
 end

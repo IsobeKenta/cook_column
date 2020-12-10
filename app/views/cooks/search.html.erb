@@ -1,10 +1,8 @@
-
 <main>
   <div class="column-contents">
-    <h2 class="title">コラム一覧(新着順)</h2>
+    <h2 class="title">検索結果</h2>
     <ul class="column-lists">
       <% @cooks.each do |cook| %>
-        
           <li class="list">
             <div class="column-info">
               <%= link_to cook_path(cook.id) do %>

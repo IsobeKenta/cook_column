@@ -1,0 +1,61 @@
+.form-contents {
+  background-color: #EEEEEE;
+  width: 70%;
+  height: 93%;
+  margin-left: 12vw;
+  margin-top: 70px;
+  margin-bottom: 20px;
+}
+.column-form {
+  text-align: center;
+  box-sizing: border-box;
+  padding: 20px 10px 0 10px;
+}
+
+
+
+.field {
+  margin-top: 5px;
+
+}
+
+.field-name {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.title {
+  width: 80%;
+  height: 50px;
+  font-size: 20px;
+}
+
+.text {
+  width: 80%;
+  height: 190px;
+}
+
+.resipe {
+  width: 80%;
+  height: 190px;
+}
+
+.genre-select {
+  width: 20%;
+  height: 30px;
+}
+
+
+
+
+.btn {
+  width: 80%;
+  height: 60px;
+  margin-top: 20px;
+  font-size: 20px;
+  background-color: orange;
+}
+
+#size_box {
+  display: none;
+}

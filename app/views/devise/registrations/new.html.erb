@@ -1,31 +1,33 @@
 <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+  <h2 class="signup">Sign up</h2>
+  <div class="new-user">
+    <div class="field-id">
+      <%= f.label :nickname, class: "label-field" %><br />
+      <%= f.text_field :nickname, autofocus: true, class: "new-registration" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :nickname %><br />
-    <%= f.text_field :nickname, autofocus: true %>
-  </div>
+    <div class="field-id">
+      <%= f.label :email, class: "label-field" %><br />
+      <%= f.email_field :email, autofocus: true, class: "new-registration" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <div class="field-id">
+      <%= f.label :password, class: "label-field" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, class: "new-registration" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password %>
-  </div>
+    <div class="field-id">
+      <%= f.label :password_confirmation, class: "label-field" %><br />
+      <%= f.password_field :password_confirmation, class: "new-registration" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+    <div class="actions">
+      <%= f.submit "Sign up", class: "action" %>
+    </div>
   </div>
 <% end %>
 

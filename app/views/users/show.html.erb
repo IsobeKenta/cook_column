@@ -5,27 +5,18 @@
     <ul class="column-lists">
       <% @cooks.each do |cook| %>
         <li class="list">
-          <div class="column-info">
-            <h3 class="column-title">
-              <%= link_to cook.title, cook_path(cook.id), method: :get, class: "title-name" %>
-            </h3>
-            <div class="write-user">
-              <a href="/users/<%= cook.user.id %>">
-                <%= cook.user.nickname %>
-              </a>
+            <div class="column-info">
+                <div class="column-image">
+                  <%= image_tag cook.image, class: "images" if cook.image.attached? %>
+                </div>
+                <div class="column-genre">
+                  <p><%= cook.category.name %></p>
+                </div>
+                <h3 class="column-title">
+                  <%= link_to cook.title, cook_path(cook.id), method: :get, class: "title-name" %>
+                </h3>
             </div>
-            <div class="column-genre">
-              <p><%= cook.genre.name %></p>
-            </div>
-            <ul class="column-tag">
-              <li class="tag-list">
-                <% cook.tags.each do |tag| %>
-                  #<%=tag.name%>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-        </li>
+          </li>
       <% end %>
     </ul>
   </div>
