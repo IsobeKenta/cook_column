@@ -13,11 +13,10 @@
   width: 100%;
   background-color: #FFF;
   margin-top: 5vh;
+  margin-left: 10vh;
 }
 
-.column-width {
-  margin-left: 5vw;
-}
+
 
 .column-width>.column-title {
   font-size: 6vh;
@@ -26,7 +25,10 @@
   margin: 50px 0 20px 0;
 }
 
-
+.column-name {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
 
 .cook-create {
   border-bottom: 1px solid;
@@ -38,8 +40,8 @@
 
 
 .column-text {
-  font-size: 15px;
-  padding-bottom: 50px;
+  font-size: 20px;
+  padding-bottom: 70px;
 }
 
 
@@ -65,7 +67,7 @@
 
 .container {
   text-align: center;
-  padding: 30px;
+  padding: 25px;
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
   box-sizing: border-box;
   margin-top: 50px;

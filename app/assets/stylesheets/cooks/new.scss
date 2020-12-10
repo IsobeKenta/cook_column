@@ -4,6 +4,7 @@
   height: 93%;
   margin-left: 12vw;
   margin-top: 70px;
+  margin-bottom: 20px;
 }
 .column-form {
   text-align: center;
@@ -31,15 +32,30 @@
 
 .text {
   width: 80%;
-  height: 200px;
+  height: 190px;
 }
 
 .resipe {
   width: 80%;
-  height: 200px;
+  height: 190px;
 }
 
 .genre-select {
   width: 20%;
   height: 30px;
+}
+
+
+
+
+.btn {
+  width: 80%;
+  height: 60px;
+  margin-top: 20px;
+  font-size: 20px;
+  background-color: orange;
+}
+
+#size_box {
+  display: none;
 }

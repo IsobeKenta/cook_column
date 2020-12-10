@@ -7,12 +7,14 @@
   font-size: 5vh;
   line-height: 1.4;
   font-family: comic;
-  text-align: center;
+  margin-left: 10vw;
 }
 
 .column-lists {
-  width: 100vw;
-  
+  width: 90vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .column-lists>.list {
   padding: 1vw;
@@ -21,25 +23,23 @@
 
 .column-info {
   margin-left: 30px;
-  width: 60vw;
+  width: 20vw;
+  height: 37vh;
   color: black;
   padding: 30px 0 10px 10px;
   border: 1px solid;
-  background-color: #FFCC00;
 }
 
-.column-image {
-  float: left;
-}
+
 
 .images {
-  height: 100px;
-  width: 150px;
+  height: 160px;
+  width: 265px;
   padding-right: 8px;
 }
 
 .column-title {
-  font-size: 3vh;
+  font-size: 2vh;
   color: black;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .column-genre p {
-  font-size: 15px;
+  font-size: 5px;
 }
 
 .tag-list {

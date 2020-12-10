@@ -14,6 +14,12 @@
       <div class="app-title">
         <a href= "/"><span>Cook</span>Column</a>
       </div>
+      <div class="search">
+        <%= form_with(url: search_cooks_path, local: true, method: :get, class: "search-form") do |form| %>
+          <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+          <%= form.submit "検索", class: "search-btn" %>
+        <% end %>
+      </div>
       <div class="log-new">
         <% if user_signed_in?%>
           <%= link_to 'マイページ', "/users/#{current_user.id}", class: "right-container" %>
@@ -25,6 +31,7 @@
         <% end %>
       </div>
     </header>
+    
    <div class="cook-image"></div>
     <aside class="column-categori">
       <div class="categori-name">カテゴリー</div>

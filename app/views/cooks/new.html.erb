@@ -21,8 +21,15 @@
       </div>
       <div class="field">
         <div class="categori-field">
-          <h2 class="field-name">カテゴリ</h2>
-          <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
+          <div class="cook_input__body__category" id="category_box">
+            <div class="pulldown" id="partent_box">
+              <%= f.label 'カテゴリー', class: 'listing-default__label' %>
+              <%= f.select :category_id, options_for_select(@category_parent_array.map{|c| [c[:name], c[:id]]}), {include_blank: "選択してください"}, {class: "parent_category_box", id: "parent_category"}%>
+            </div>
+            <div class="pulldown cook_input__body__category__children" id="children_box">
+            </div>
+            <div class=" pulldown cook_input__body__category__grandchildren" id="grandchildren_box">
+          </div>
         </div>
       </div>
       <div class="field">
